@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description"
+        content="Nihilist Penguin - Sonsuz yürüyüş oyunu. Werner Herzog'un ünlü depressed penguin karakteri.">
+    <meta name="theme-color" content="#0a0a1a">
+    <title>Nihilist Penguin 🐧</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="game-container">
+        <!-- İsim Giriş Ekranı -->
+        <div id="name-screen" class="screen active">
+            <div class="stars"></div>
+            <div class="menu-content">
+                <div class="title-container">
+                    <h1 class="game-title">NIHILIST<br>PENGUIN</h1>
+                    <div class="penguin-preview">🐧</div>
+                </div>
+                <p class="tagline">"Hiçbir şeyin anlamı yok... ama yine de yürüyoruz."</p>
+                <div class="name-input-container">
+                    <label for="player-name" class="input-label">Adını gir, yolcu...</label>
+                    <input type="text" id="player-name" class="name-input" placeholder="Penguen Adı" maxlength="15"
+                        autocomplete="off">
+                </div>
+                <button id="enter-btn" class="game-btn pulse">
+                    <span>GİRİŞ</span>
+                </button>
+            </div>
+            <div class="snow-overlay"></div>
+        </div>
+
+        <!-- Ana Menü -->
+        <div id="menu-screen" class="screen">
+            <div class="stars"></div>
+            <div class="menu-content">
+                <div class="title-container">
+                    <h1 class="game-title">NIHILIST<br>PENGUIN</h1>
+                    <div class="penguin-preview">🐧</div>
+                </div>
+                <p class="welcome-text">Hoş geldin, <span id="player-display"></span></p>
+                <button id="start-btn" class="game-btn pulse">
+                    <span>BAŞLA</span>
+                </button>
+                <button id="leaderboard-btn" class="game-btn secondary">
+                    <span>🏆 SKOR TABLOSU</span>
+                </button>
+                <div class="instructions">
+                    <p>📱 Mobil: Ekrana dokun</p>
+                    <p>💻 Masaüstü: Space veya ↑</p>
+                </div>
+            </div>
+            <div class="snow-overlay"></div>
+        </div>
+
+        <!-- Skor Tablosu -->
+        <div id="leaderboard-screen" class="screen">
+            <div class="leaderboard-content">
+                <h2 class="leaderboard-title">🏆 SKOR TABLOSU</h2>
+                <div id="leaderboard-list" class="leaderboard-list">
+                    <!-- Skorlar buraya gelecek -->
+                </div>
+                <button id="leaderboard-back-btn" class="game-btn secondary">
+                    <span>← GERİ</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Oyun Ekranı -->
+        <div id="game-screen" class="screen">
+            <div id="game-ui">
+                <div class="ui-row">
+                    <div class="score-display">
+                        <span class="label">MESAFE</span>
+                        <span id="distance" class="value">0m</span>
+                    </div>
+                    <div class="player-display-game">
+                        <span id="player-name-game" class="player-name-text"></span>
+                    </div>
+                    <div class="high-score-display">
+                        <span class="label">EN İYİ</span>
+                        <span id="high-score" class="value">0m</span>
+                    </div>
+                </div>
+                <div id="quote-display" class="quote"></div>
+            </div>
+            <canvas id="game-canvas"></canvas>
+        </div>
+
+        <!-- Game Over Ekranı -->
+        <div id="gameover-screen" class="screen">
+            <div class="gameover-content">
+                <h2 class="gameover-title">YOLCULUK BİTTİ</h2>
+                <div class="final-stats">
+                    <div class="stat">
+                        <span class="stat-label">Bu sefer</span>
+                        <span id="final-distance" class="stat-value">0m</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">En uzak</span>
+                        <span id="final-high-score" class="stat-value">0m</span>
+                    </div>
+                </div>
+                <p id="final-quote" class="final-quote"></p>
+                <button id="restart-btn" class="game-btn">
+                    <span>TEKRAR DENE</span>
+                </button>
+                <button id="menu-btn" class="game-btn secondary">
+                    <span>ANA MENÜ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="quotes.js"></script>
+    <script src="game.js"></script>
+</body>
+
+</html>
